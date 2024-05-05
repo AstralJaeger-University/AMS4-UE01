@@ -4,7 +4,7 @@
         "**/.git": true,
         "**/.DS_Store": true,
         "**/*.aux": true,
-        "**/*.log": true,
+        "**/*.log": false,
         "**/*.out": true,
         "**/*.synctex.gz": true,
         "**/*.fdb_latexmk": true,
@@ -12,5 +12,38 @@
         "**/*.pyg": true,
         "**/*.toc": true,
         "**/main.pdf": true,
-    }
+    },
+    "latex-workshop.latex.tools": [
+        {
+            "name": "latexmk",
+            "command": "latexmk",
+            "args": [
+                "--shell-escape",
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "-outdir=%OUTDIR%",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": [
+                "--shell-escape",
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "bibtex",
+            "command": "bibtex",
+            "args": [
+                "%DOCFILE%"
+            ]
+        }
+    ]
 }

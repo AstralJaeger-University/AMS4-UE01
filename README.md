@@ -27,3 +27,7 @@ Here are some links to the documentation for most tools used:
 - [pygraphviz](https://pygraphviz.github.io/documentation/pygraphviz-1.11/)
 
 
+## Extra Info
+
+![ChatGPT on Paths, walks and trails](images/image.png)
+[ChatGPT on Paths, walks and trails](https://chat.openai.com/share/77b43a35-28f9-493f-a10c-15a786595ce2)

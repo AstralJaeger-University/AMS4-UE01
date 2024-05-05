@@ -18,16 +18,11 @@
 \usepackage{minted}
 \usemintedstyle{vs}
 
-\lsbset{
-    frame=tb,
-    aboveskip=3mm,
-    belowskip=3mm,
-    columns=flexible,
-    basicstyle={\small\ttfamily},
-    numbers=none,
-    breaklines=true,
-    tabsize=3
-}
+% Author and subject
+\author{Felix Hillebrand}
+\newcommand{\subject}{SSD4UE}
+
+\graphicspath{ {./images/} }
 
 % Set default font to OpenSans
 \renewcommand*\familydefault{\sfdefault}
@@ -61,7 +56,7 @@
 \newcommand{\coverpage}{
     \thispagestyle{cover}
     \begin{center}
-        {\includegraphics[height=3cm]{fh-logo}}\\[1cm]
+        % {\includegraphics[height=3cm]{fh-logo.png}}\\[1cm]
         {\LARGE \thetitle}\\[0.5cm]
         {\large \theauthor}\\
         \href{mailto:97hilfel@gmail.com}{97hilfel@gmail.com}\\
@@ -77,12 +72,6 @@
     \end{figure}
 }
 
-% Author and subject
-\author{Felix Hillebrand}
-\newcommand{\subject}{SSD4UE}
-
-\graphicspath{ {./images/} }
-
 % Main document
 \begin{document}
 
@@ -93,6 +82,17 @@
 \clearpage
 \pagenumbering{arabic}
 \pagestyle{main}
+
+\chapter{Python}
+    \begin{description}
+        \item[Aufgabe:] Vervollständigen Sie folgende Python Funktionen (g ist ein networkx Graph) \hfill
+        \item[Lösung:] \hfill \newline % Use hfill to move the figure to the next line
+            \begin{minted}[breaklines, linenos]{python}
+                print("Hello World")
+                
+            \end{minted}
+    \end{description}
+\newpage
 
 \chapter{Topic}
 \begin{enumerate}
