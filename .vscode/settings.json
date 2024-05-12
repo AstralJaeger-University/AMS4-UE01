@@ -11,7 +11,7 @@
         "**/*.fls": true,
         "**/*.pyg": true,
         "**/*.toc": true,
-        "**/main.pdf": true,
+        "**/main.pdf": false,
     },
     "latex-workshop.latex.tools": [
         {

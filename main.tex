@@ -75,6 +75,10 @@
 % Main document
 \begin{document}
 
+% Color definitions
+\definecolor{LightGray}{gray}{0.9}
+\definecolor{DarkGray}{gray}{0.3}
+
 \title{Subject~-~Exercise}
 \coverpage
 
@@ -87,14 +91,138 @@
     \begin{description}
         \item[Aufgabe:] Vervollständigen Sie folgende Python Funktionen (g ist ein networkx Graph) \hfill
         \item[Lösung:] \hfill \newline % Use hfill to move the figure to the next line
-            \begin{minted}[breaklines, linenos]{python}
-                print("Hello World")
-                
+            \begin{minted}[
+                frame=lines,
+                framesep=2mm,
+                baselinestretch=1.2,
+                bgcolor=LightGray,
+                linenos
+                ]{python}
+#prints all nodes in g in alphabetical order 
+def print_all_nodes(g):
+    for node in sorted(g.nodes()):
+        print(node)
+
+#adds the nodes start, start+1, start+2,....start+count-1 to the grapgh g 
+def add_nodes_(g, start, count):
+    g.add_nodes_from([i for i in range(start, start + count)])
+
+#adds the nodes start, start+1, start+2,....start+count-1 to the graph 
+#as well as every possible edge between the new nodes 
+def add_nodes_connected(g, start, count):
+    new_nodes = list(range(start, start + count))
+    for i in range(len(new_nodes)):
+        for j in range(i + 1, len(new_nodes)):
+            g.add_edge(new_nodes[i], new_nodes[j])
             \end{minted}
+
+        \item[Tests:] \hfil \newline
+        \begin{minted}[
+            frame=lines,
+            framesep=2mm,
+            baselinestretch=1.2,
+            bgcolor=LightGray,
+            linenos
+        ]{python}
+g = nx.Graph()
+add_nodes_(g, 0, 5)
+print_all_nodes(g)
+
+# Plot graph for better visualization
+nx.draw(g, with_labels=True)
+plt.show()
+        \end{minted}
+        Output: 
+        \begin{minted}[
+            frame=lines,
+            framesep=2mm,
+            baselinestretch=1.2,
+            bgcolor=LightGray,
+            linenos
+        ]{text}
+0
+1
+2
+3
+4
+        \end{minted}
+
+        \screenshot{notebook/assets/aufgabe_01_nodes.png}
+
+        \begin{minted}[
+            frame=lines,
+            framesep=2mm,
+            baselinestretch=1.2,
+            bgcolor=LightGray,
+            linenos
+        ]{python}
+g = nx.Graph()
+add_nodes_connected(g, 0, 5)
+print_all_nodes(g)
+
+# Plot graph for better visualization
+nx.draw(g, with_labels=True)
+plt.show()
+        \end{minted}
+        Output: 
+        \begin{minted}[
+            frame=lines,
+            framesep=2mm,
+            baselinestretch=1.2,
+            bgcolor=LightGray,
+            linenos
+        ]{text}
+0
+1
+2
+3
+4
+        \end{minted}
+        \screenshot{notebook/assets/aufgabe_01_connected.png}
     \end{description}
 \newpage
 
-\chapter{Topic}
+\chapter{Darstellung}
+\begin{description}
+    \item[Aufgabe:] Zeichnen Sie den folgenden Graphen \newline
+        \begin{math}
+            G = (V, E), V = \{a, b, c, d, e\}, E = \{\{a, b\}, \{a, d\}, \{c, e\}, \{b, c\}, \{e, d\}\}
+        \end{math}
+    \item[Lösung:] \hfill \newline % Use hfill to move the figure to the next line
+        \begin{minted}[
+            frame=lines,
+            framesep=2mm,
+            baselinestretch=1.2,
+            bgcolor=LightGray,
+            linenos
+            ]{python}
+# Step 1: Create a graph
+g = nx.Graph()
+g.add_edges_from([('a', 'b'), ('a', 'd'), ('c', 'e'), ('b', 'c'), ('e', 'd')])
+
+# Step 2: Convert to AGraph (Graphviz graph)
+a = to_agraph(g)
+
+# Step 3: Draw using AGraph
+a.draw("assets/aufgabe_02_graph.png", format="png", prog="dot")
+
+# Step 4: Display the result
+display(Image(filename="assets/aufgabe_02_graph.png"))
+        \end{minted}
+        \screenshot{notebook/assets/aufgabe_02_graph.png}
+\end{description}
+\newpage
+
+\chapter{Wanderungen, Wege, Pfade}
+Gegeben Sei nachfolgende Darstelling eines Graphen mit 8 Knoten
+
+
+
+\begin{enumerate}
+    \item Geben Sie alle möglichen \textit{Wege} von 1 nach 8 an.
+    \item Sind die nachfolgenden Kantenfolgen $W_1$ bis $W_6$ Wanderungen, Wege oder Pfade?
+\end{enumerate}
+
 \begin{enumerate}
     % First main item
     \item \label{item:backrefA} \hfill % Use hfill to move the figure to the next line
