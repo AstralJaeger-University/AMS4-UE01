@@ -16,6 +16,8 @@
 \usepackage{caption}
 \usepackage{listings}
 \usepackage{minted}
+\usepackage{subcaption}
+\usepackage{enumitem}
 \usemintedstyle{vs}
 
 % Author and subject
@@ -96,7 +98,8 @@
                 framesep=2mm,
                 baselinestretch=1.2,
                 bgcolor=LightGray,
-                linenos
+                linenos,
+                breaklines
                 ]{python}
 #prints all nodes in g in alphabetical order 
 def print_all_nodes(g):
@@ -122,7 +125,8 @@ def add_nodes_connected(g, start, count):
             framesep=2mm,
             baselinestretch=1.2,
             bgcolor=LightGray,
-            linenos
+            linenos,
+            breaklines
         ]{python}
 g = nx.Graph()
 add_nodes_(g, 0, 5)
@@ -138,7 +142,8 @@ plt.show()
             framesep=2mm,
             baselinestretch=1.2,
             bgcolor=LightGray,
-            linenos
+            linenos,
+            breaklines
         ]{text}
 0
 1
@@ -154,7 +159,8 @@ plt.show()
             framesep=2mm,
             baselinestretch=1.2,
             bgcolor=LightGray,
-            linenos
+            linenos,
+            breaklines
         ]{python}
 g = nx.Graph()
 add_nodes_connected(g, 0, 5)
@@ -170,7 +176,8 @@ plt.show()
             framesep=2mm,
             baselinestretch=1.2,
             bgcolor=LightGray,
-            linenos
+            linenos,
+            breaklines
         ]{text}
 0
 1
@@ -194,7 +201,8 @@ plt.show()
             framesep=2mm,
             baselinestretch=1.2,
             bgcolor=LightGray,
-            linenos
+            linenos,
+            breaklines
             ]{python}
 # Step 1: Create a graph
 g = nx.Graph()
@@ -282,7 +290,8 @@ Gegeben sei der Graph aus Punkt 2. bestemmen Sie jeweils ob die Graphen $H_1$ bi
         framesep=2mm,
         baselinestretch=1.2,
         bgcolor=LightGray,
-        linenos
+        linenos,
+        breaklines
         ]{python}
 def is_subgraph(small, big):
 """Check if small is a subgraph of big in the mathematical sense."""
@@ -323,7 +332,8 @@ for i in range(len(graphs)):
         framesep=2mm,
         baselinestretch=1.2,
         bgcolor=LightGray,
-        linenos
+        linenos,
+        breaklines
         ]{text}
 h1 is a subgraph of G
 h2 is a subgraph of G
@@ -345,7 +355,8 @@ Stellen Sie das folgende Programm als Kontrollflussgraph dar.
     framesep=2mm,
     baselinestretch=1.2,
     bgcolor=LightGray,
-    linenos
+    linenos,
+    breaklines
     ]{java}
 while (a < b) {
     if (a % c == 0) break;
@@ -381,11 +392,126 @@ Implementieren Sie den Fleury Algorithmus aus dem Skriptum und finden Sie einen 
 
 Als Output gib die Zustände der Variablen $v$, $F$, $e$ und $k$ vor jeder Iteration der Schleife an.
 
+\begin{minted}[
+    frame=lines,
+    framesep=2mm,
+    baselinestretch=1.2,
+    bgcolor=LightGray,
+    linenos,
+    breaklines
+    ]{text}
+idx 0 - v 3 - F [(0, 1), (0, 7), (1, 2), (1, 3), (1, 4), (2, 4), (3, 4), (3, 7), (3, 5), (4, 5), (5, 7), (5, 8), (5, 6), (5, 9), (6, 9), (7, 8)] - e (3, 7) - K [3]
+idx 1 - v 7 - F [(0, 1), (0, 7), (1, 2), (1, 3), (1, 4), (2, 4), (3, 4), (3, 5), (4, 5), (5, 7), (5, 8), (5, 6), (5, 9), (6, 9), (7, 8)] - e (7, 0) - K [3, 7]
+idx 2 - v 0 - F [(0, 1), (1, 2), (1, 3), (1, 4), (2, 4), (3, 4), (3, 5), (4, 5), (5, 7), (5, 8), (5, 6), (5, 9), (6, 9), (7, 8)] - e (0, 1) - K [3, 7, 0]
+idx 3 - v 1 - F [(1, 2), (1, 3), (1, 4), (2, 4), (3, 4), (3, 5), (4, 5), (5, 7), (5, 8), (5, 6), (5, 9), (6, 9), (7, 8)] - e (1, 2) - K [3, 7, 0, 1]
+idx 4 - v 2 - F [(1, 3), (1, 4), (2, 4), (3, 4), (3, 5), (4, 5), (5, 7), (5, 8), (5, 6), (5, 9), (6, 9), (7, 8)] - e (2, 4) - K [3, 7, 0, 1, 2]
+idx 5 - v 4 - F [(1, 3), (1, 4), (3, 4), (3, 5), (4, 5), (5, 7), (5, 8), (5, 6), (5, 9), (6, 9), (7, 8)] - e (4, 1) - K [3, 7, 0, 1, 2, 4]
+idx 6 - v 1 - F [(1, 3), (3, 4), (3, 5), (4, 5), (5, 7), (5, 8), (5, 6), (5, 9), (6, 9), (7, 8)] - e (1, 3) - K [3, 7, 0, 1, 2, 4, 1]
+idx 7 - v 3 - F [(3, 4), (3, 5), (4, 5), (5, 7), (5, 8), (5, 6), (5, 9), (6, 9), (7, 8)] - e (3, 4) - K [3, 7, 0, 1, 2, 4, 1, 3]
+idx 8 - v 4 - F [(3, 5), (4, 5), (5, 7), (5, 8), (5, 6), (5, 9), (6, 9), (7, 8)] - e (4, 5) - K [3, 7, 0, 1, 2, 4, 1, 3, 4]
+idx 9 - v 5 - F [(3, 5), (5, 7), (5, 8), (5, 6), (5, 9), (6, 9), (7, 8)] - e (5, 3) - K [3, 7, 0, 1, 2, 4, 1, 3, 4, 5]    
+\end{minted}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.3\textwidth}
+        \includegraphics[height=0.29\textheight]{notebook/assets/aufgabe_07_fleury_step_0.png}
+        \caption{Step 1}
+        \label{fig:fleury_step_1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.3\textwidth}
+        \includegraphics[height=0.29\textheight]{notebook/assets/aufgabe_07_fleury_step_1.png}
+        \caption{Step 2}
+        \label{fig:fleury_step_2}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.3\textwidth}
+        \includegraphics[height=0.29\textheight]{notebook/assets/aufgabe_07_fleury_step_2.png}
+        \caption{Step 3}
+        \label{fig:fleury_step_3}
+    \end{subfigure}
+    
+    \vspace{1em}
+    
+    \begin{subfigure}[b]{0.3\textwidth}
+        \includegraphics[height=0.29\textheight]{notebook/assets/aufgabe_07_fleury_step_3.png}
+        \caption{Step 4}
+        \label{fig:fleury_step_4}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.3\textwidth}
+        \includegraphics[height=0.29\textheight]{notebook/assets/aufgabe_07_fleury_step_4.png}
+        \caption{Step 5}
+        \label{fig:fleury_step_5}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.3\textwidth}
+        \includegraphics[height=0.29\textheight]{notebook/assets/aufgabe_07_fleury_step_5.png}
+        \caption{Step 6}
+        \label{fig:fleury_step_6}
+    \end{subfigure}
+    
+    \vspace{1em}
+    
+    \begin{subfigure}[b]{0.3\textwidth}
+        \includegraphics[height=0.29\textheight]{notebook/assets/aufgabe_07_fleury_step_6.png}
+        \caption{Step 7}
+        \label{fig:fleury_step_7}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.3\textwidth}
+        \includegraphics[height=0.29\textheight]{notebook/assets/aufgabe_07_fleury_step_7.png}
+        \caption{Step 8}
+        \label{fig:fleury_step_8}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.3\textwidth}
+        \includegraphics[height=0.29\textheight]{notebook/assets/aufgabe_07_fleury_step_8.png}
+        \caption{Step 9}
+        \label{fig:fleury_step_9}
+    \end{subfigure}
+    
+    \caption{Fleury Algorithm Steps}
+    \label{fig:fleury_algorithm_steps}
+\end{figure}
+
 \newpage
 
 \chapter{Euler und Hamilton}
+Falls möglich beschreiben Sie \underline{jeweils} einen zusammenhängenden Graphen mit Ordnung $\geq 3$ der
 
+\begin{enumerate}[label=\alph*.]
+    \item keinen Eulerkreis und keinen Hamiltonkreis
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[height=2.5cm]{notebook/assets/aufgabe_08_graph_a.png}
+        \caption{Kein Eulerkreis und kein Hamiltonkreis}
+        \label{fig:no_euler_no_hamilton}
+    \end{figure}
+    \item einen Eulerkreis, aber keinen Hamiltonkreis
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[height=2.5cm]{notebook/assets/aufgabe_08_graph_b.png}
+        \caption{Ein Eulerkreis, aber kein Hamiltonkreis}
+        \label{fig:neuler_no_hamilton}
+    \end{figure}
+    \item keinen Eulerkreis, aber einen Hamiltonkreis
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[height=2.5cm]{notebook/assets/aufgabe_08_graph_c.png}
+        \caption{Kein Eulerkreis, aber ein Hamiltonkreis}
+        \label{fig:no_euler_hamilton}
+    \end{figure}
+    \item einen Eulerkreis und einen Hamiltonkreis
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[height=2.5cm]{notebook/assets/aufgabe_08_graph_d.png}
+        \caption{Ein Eulerkreis und ein Hamiltonkreis}
+        \label{fig:euler_hamilton}
+    \end{figure}
+\end{enumerate}
 
+aufweist.
 
 \newpage
 
