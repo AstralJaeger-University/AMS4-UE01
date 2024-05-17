@@ -216,8 +216,6 @@ display(Image(filename="assets/aufgabe_02_graph.png"))
 \chapter{Wanderungen, Wege, Pfade}
 Gegeben Sei nachfolgende Darstelling eines Graphen mit 8 Knoten
 
-
-
 \begin{enumerate}
     \item Geben Sie alle möglichen \textit{Wege} von 1 nach 8 an.
     \item Sind die nachfolgenden Kantenfolgen $W_1$ bis $W_6$ Wanderungen, Wege oder Pfade?
@@ -233,6 +231,135 @@ Gegeben Sei nachfolgende Darstelling eines Graphen mit 8 Knoten
             Solution
     \end{description}
 \end{enumerate}
+\newpage
+
+
+\chapter{Teilgraph}
+
+Gegeben sei der Graph aus Punkt 2. bestemmen Sie jeweils ob die Graphen $H_1$ bis $H_4$ Teilgraphen sind.
+\begin{itemize}
+    \item $G = (\{a, b, c, d, e\}, \{\{a, b\}, \{a, d\}, \{c, e\}, \{b, c\}, \{e, d\}\})$
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=3cm]{notebook/assets/aufgabe_02_graph.png}
+        \caption{Graph $G$}
+        \label{fig:graph_h_1}
+    \end{figure}
+    \item $H_1 = (\{ a, b, d\}, \{ \{a, b\}, \{a, d\}\})$ 
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=3cm]{notebook/assets/aufgabe_04_h1.png}
+        \caption{Graph $H_1$}
+        \label{fig:graph_h_1}
+    \end{figure}
+    \item $H_2 = (\{ a, b, c, d, e\}, \{ \{a, b\}, \{a, d\}, \{b, c\}, \{d, e\}\})$
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=3cm]{notebook/assets/aufgabe_04_h2.png}
+        \caption{Graph $H_2$}
+        \label{fig:graph_h_2}
+    \end{figure}
+    \item $H_3 = (\{ a, b, f\}, \{ \{a, b\}\})$
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=3cm]{notebook/assets/aufgabe_04_h3.png}
+        \caption{Graph $H_3$}
+        \label{fig:graph_h_3}
+    \end{figure}
+    \item $H_3 = (\{ d, e\},\emptyset)$
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=3cm]{notebook/assets/aufgabe_04_h4.png}
+        \caption{Graph $H_4$}
+        \label{fig:graph_h_4}
+    \end{figure}
+\end{itemize}
+
+\begin{figure}
+    \centering
+    \begin{minted}[
+        frame=lines,
+        framesep=2mm,
+        baselinestretch=1.2,
+        bgcolor=LightGray,
+        linenos
+        ]{python}
+def is_subgraph(small, big):
+"""Check if small is a subgraph of big in the mathematical sense."""
+# Check if all nodes of small are in big
+if not set(small.nodes()).issubset(set(big.nodes())):
+    return False
+# Check if all edges of small are in big
+if not set(small.edges()).issubset(set(big.edges())):
+    return False
+return True
+
+# graph definition obmitted for brevity
+
+graphs = [h1, h2, h3, h4]
+titles = ["h1", "h2", "h3", "h4"]
+
+# render graphs
+for idx, (graph, title) in enumerate(zip(graphs, titles), 1):
+    a = to_agraph(graph)
+    filename = f"assets/{prefix}_h{idx}.png"
+    # Draw using AGraph
+    a.draw(filename, format="png", prog="dot")
+    # Display the result
+    display(Image(filename=filename))
+
+for i in range(len(graphs)):
+    if is_subgraph(graphs[j], G):
+        print(f"{titles[i]} is a subgraph of G")
+    \end{minted}
+    \caption{Python Code für Grafiken und check}
+    \label{fig:is_subgraph}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \begin{minted}[
+        frame=lines,
+        framesep=2mm,
+        baselinestretch=1.2,
+        bgcolor=LightGray,
+        linenos
+        ]{text}
+h1 is a subgraph of G
+h2 is a subgraph of G
+h3 is a subgraph of G
+h4 is a subgraph of G
+    \end{minted}
+    \caption{Python Code Ausgabe}
+    \label{fig:is_subgraph}
+\end{figure}
+
+
+
+\newpage
+
+\chapter{Visualisierung}
+
+
+
+\newpage
+
+\chapter{Zustandsgraphen}
+
+
+
+\newpage
+
+\chapter{Eulerkreis}
+
+
+
+\newpage
+
+\chapter{Euler und Hamilton}
+
+
+
 \newpage
 
 \chapter{Legal}
