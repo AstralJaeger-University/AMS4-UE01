@@ -437,7 +437,37 @@ while (a < b) {
 \newpage
 
 \chapter{Zustandsgraphen}
+Im bekannten Spiel Tik-Tac-Toe (\url{https://de.wikipedia.org/wiki/Tic-Tac-Toe}) lassen sich die Züstände des Spielfeldes als Knoten eines Graphen darstellen, die durch die Möglichen Züge der Spieler verbunden werden.
+\begin{enumerate}
+    \item Nutzen Sie eine geeignete Überführung der Spielzustände in Knotennamen 
+    \item Erstellen Sie einen gerichteten Graphen G aller von diesem Spielzustand erreichbaren Spielzustände
+    \item Weisen Sie den Zügen des Spielers "x" das Kantengewicht $1$ und den Zügen des Spielers "o" das Kantengewicht $-1$ zu.
+    \item Zeichnen Sie den Graphen
+    
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=\textwidth]{notebook/assets/aufgabe_06_tictactoe.png}
+        \caption{Tic Tac Toe}
+        \label{fig:tictactoe}
+    \end{figure}
 
+    \item Beantworten Sie folgene Fragen:
+    \begin{itemize}
+        \item Welche Größe hat G?
+        G hat die Ordnung \textbf{96}
+        \item Welche Ordnung hat G?
+        G hat die Größe \textbf{175}.
+        \item Wie viele Knoten sind End-Zustände? Wie viele davon: "Sieg x"/"Sieg o"/"unentschieden"
+        \begin{itemize}
+            \item X Siege: 26
+            \item O Siege: 18
+            \item Unentschieden: 2
+        \end{itemize}
+        \item Was ist der längste mögliche Pfad in diesem Graph?
+        Der Längste Pfad ist: 'o-o-x---x', 'oxo-x---x', 'oxo-x-o-x', 'oxoxx-o-x', 'oxoxx-oox', 'oxoxxxoox'
+        \item Wer gewinnt wenn beide Spieler optimal spielen?
+    \end{itemize}
+\end{enumerate}
 
 
 \newpage
