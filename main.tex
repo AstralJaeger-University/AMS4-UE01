@@ -229,18 +229,82 @@ Gegeben Sei nachfolgende Darstelling eines Graphen mit 8 Knoten
     \item Sind die nachfolgenden Kantenfolgen $W_1$ bis $W_6$ Wanderungen, Wege oder Pfade?
 \end{enumerate}
 
-\begin{enumerate}
-    % First main item
-    \item \label{item:backrefA} \hfill % Use hfill to move the figure to the next line
-    \begin{description}
-        \item[Aufgabe:] 
-         \hfill
-        \item[Lösung:] \hfill \newline % Use hfill to move the figure to the next line
-            Solution
-    \end{description}
-\end{enumerate}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[height=0.2\textheight]{notebook/assets/aufgabe_03_graph_path_1_to_8_1.png}
+        \caption{Weg 1}
+        \label{fig:way_1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[height=0.2\textheight]{notebook/assets/aufgabe_03_graph_path_1_to_8_2.png}
+        \caption{Weg 2}
+        \label{fig:way_2}
+    \end{subfigure}
+    \hfill
+
+    \vspace{1em}
+
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[height=0.2\textheight]{notebook/assets/aufgabe_03_graph_path_1_to_8_3.png}
+        \caption{Weg 3}
+        \label{fig:way_3}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[height=0.2\textheight]{notebook/assets/aufgabe_03_graph_path_1_to_8_4.png}
+        \caption{Weg 4}
+        \label{fig:way_4}
+    \end{subfigure}
+\end{figure}
+
 \newpage
 
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[height=0.25\textheight]{notebook/assets/aufgabe_03_walk_1.png}
+        \caption{\textbf{Wanderung}: $W_1 = (1, 2, 3, 4, 5, 6, 8)$}
+        \label{fig:w_1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[height=0.25\textheight]{notebook/assets/aufgabe_03_walk_2.png}
+        \caption{\textbf{Pfad}: $W_2 = (5, 7, 8)$}
+        \label{fig:w_2}
+    \end{subfigure}
+    \hfill
+
+    \vspace{1em}
+
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[height=0.25\textheight]{notebook/assets/aufgabe_03_walk_3.png}
+        \caption{\textbf{Wanderung}: $W_3 = (2, 3, 4, 2, 5)$}
+        \label{fig:w_3}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[height=0.25\textheight]{notebook/assets/aufgabe_03_walk_4.png}
+        \caption{\textbf{Pfad}: $W_4 = (1, 2, 3, 2, 5, 2, 1)$}
+        \label{fig:w_4}
+    \end{subfigure}
+    \hfill
+
+    \vspace{1em}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[height=0.3\textheight]{notebook/assets/aufgabe_03_walk_5.png}
+        \caption{\textbf{Weg}: $W_5 = (3, 4, 2, 3)$}
+        \label{fig:w_5}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[height=0.3\textheight]{notebook/assets/aufgabe_03_walk_6.png}
+        \caption{\textbf{Weder-noch?}: $W_6 = \{ 1, 2, 3, 4\}$}
+        \label{fig:w_6}
+    \end{subfigure}
+    \hfill
+\end{figure}
 
 \chapter{Teilgraph}
 
@@ -324,7 +388,6 @@ for i in range(len(graphs)):
     \caption{Python Code für Grafiken und check}
     \label{fig:is_subgraph}
 \end{figure}
-
 \begin{figure}
     \centering
     \begin{minted}[
@@ -371,7 +434,6 @@ while (a < b) {
     \label{fig:program_graph}
 \end{figure}
 
-
 \newpage
 
 \chapter{Zustandsgraphen}
@@ -411,6 +473,7 @@ idx 7 - v 3 - F [(3, 4), (3, 5), (4, 5), (5, 7), (5, 8), (5, 6), (5, 9), (6, 9),
 idx 8 - v 4 - F [(3, 5), (4, 5), (5, 7), (5, 8), (5, 6), (5, 9), (6, 9), (7, 8)] - e (4, 5) - K [3, 7, 0, 1, 2, 4, 1, 3, 4]
 idx 9 - v 5 - F [(3, 5), (5, 7), (5, 8), (5, 6), (5, 9), (6, 9), (7, 8)] - e (5, 3) - K [3, 7, 0, 1, 2, 4, 1, 3, 4, 5]    
 \end{minted}
+
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}[b]{0.3\textwidth}
