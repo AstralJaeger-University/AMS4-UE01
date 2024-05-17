@@ -331,15 +331,34 @@ h3 is a subgraph of G
 h4 is a subgraph of G
     \end{minted}
     \caption{Python Code Ausgabe}
-    \label{fig:is_subgraph}
+    \label{fig:is_subgraph_output}
 \end{figure}
-
-
 
 \newpage
 
 \chapter{Visualisierung}
 
+Stellen Sie das folgende Programm als Kontrollflussgraph dar. 
+
+\begin{minted}[
+    frame=lines,
+    framesep=2mm,
+    baselinestretch=1.2,
+    bgcolor=LightGray,
+    linenos
+    ]{java}
+while (a < b) {
+    if (a % c == 0) break;
+    a++;
+}
+\end{minted}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=3cm]{notebook/assets/aufgabe_05_graph.png}
+    \caption{Control flow path}
+    \label{fig:program_graph}
+\end{figure}
 
 
 \newpage
@@ -352,7 +371,15 @@ h4 is a subgraph of G
 
 \chapter{Eulerkreis}
 
+Implementieren Sie den Fleury Algorithmus aus dem Skriptum und finden Sie einen Eulerkreis in folgendem Graph:
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=3cm]{notebook/assets/aufgabe_07_graph.png}
+    \caption{Graph}
+    \label{fig:eulerkreis_graph}
+\end{figure}
 
+Als Output gib die Zustände der Variablen $v$, $F$, $e$ und $k$ vor jeder Iteration der Schleife an.
 
 \newpage
 
